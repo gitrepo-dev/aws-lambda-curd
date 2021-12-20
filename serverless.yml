@@ -4,13 +4,10 @@
 service: aws-lambda-curd
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
-  environment:
-    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    AWS_ACCESS_SERCRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 
 functions:
