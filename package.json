@@ -1,0 +1,18 @@
+{
+  "name": "awscurdapp",
+  "version": "1.0.0",
+  "description": "this is curd api which is build in aws lambda and the github actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws-curd-app",
+    "aws-lambd-curd-app"
+  ],
+  "author": "jay sean",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}

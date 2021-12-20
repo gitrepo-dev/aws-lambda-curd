@@ -1,0 +1,14 @@
+#aws curd app
+#version 1.0.0
+
+service: aws-lambda-curd
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: ap-south-1
+
+
+functions:
+  hello:
+    handler: src/handler.helloworld
