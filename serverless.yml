@@ -5,6 +5,7 @@ service: aws-lambda-curd
 provider:
   name: aws
   runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
 
