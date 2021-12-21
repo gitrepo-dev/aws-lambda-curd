@@ -4,15 +4,7 @@
 service: aws-lambda-curd
 provider:
   name: aws
-  runtime: nodejs14.x
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:getObject
-        - s3:putObject
-        - s3:putBucketPolicy
-        - states:startExecution
-      Resource: "*"
+  runtime: nodejs14.x  
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
