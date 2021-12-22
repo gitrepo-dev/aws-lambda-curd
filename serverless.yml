@@ -16,17 +16,17 @@ provider:
         - s3:GetObject
         - s3:DeleteObject
         - s3:ListObjects
-      Resource: 
-        - "arn:aws:s3:::todo/*"
-        - "arn:aws:s3:::todo/*"
 
-functions:
-  hello:
-    handler: src/handler.hello
+custom: 
+  BucketName: todo
 
 resources:
   Resources:
     S3OutputBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:service}-${self:provider.stage}-assets
+        BucketName: ${self:custom.BucketName}-${self:provider.stage}
+
+functions:
+  hello:
+    handler: src/handler.hello        
