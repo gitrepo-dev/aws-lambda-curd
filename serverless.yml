@@ -8,6 +8,11 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
+  Action: s3:*
+    Effect: Allow
+      Resource:
+        arn:aws:s3:::todo
+        arn:aws:s3:::todo/*
 
 functions:
   hello:
