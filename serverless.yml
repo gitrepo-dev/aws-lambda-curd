@@ -18,11 +18,11 @@ provider:
         - s3:ListObjects
 
 resources:
-  Resource:
+  Resources:
     S3OutputBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:service}-${self:provider.stage}
+        BucketName: ${self:service}-${self:provider.stage}-assets
         AccessControl: Private
 
 functions:
