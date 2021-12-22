@@ -8,37 +8,25 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
-
-custom:
-  BucketName:
-    Name: ses-forwarder
-
-resources:
-  Resources:
-    MYSESForwardBucket:
-      Type: 'AWS::S3::Bucket'
-      Properties:
-        BucketName: 'todo'
-
-  # iamRoleStatements:
-  #   - Effect: Allow
-  #     Action:
-  #       - s3:CreateBucket
-  #       - s3:PutObject
-  #       - s3:GetObject
-  #       - s3:DeleteObject
-  #       - s3:ListObjects
-  #     Resource: 
-  #       - "arn:aws:s3:::todo/*"
-  #       - "arn:aws:s3:::todo/*"
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:CreateBucket
+        - s3:PutObject
+        - s3:GetObject
+        - s3:DeleteObject
+        - s3:ListObjects
+      Resource: 
+        - "arn:aws:s3:::todo/*"
+        - "arn:aws:s3:::todo/*"
 
 functions:
   hello:
     handler: src/handler.hello
 
-# resources:
-#   Resources:
-#     S3OutputBucket:
-#       Type: AWS::S3::Bucket
-#       Properties:
-#         BucketName: todo
+resources:
+  Resources:
+    S3OutputBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: todo
