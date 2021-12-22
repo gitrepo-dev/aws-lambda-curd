@@ -18,14 +18,16 @@ provider:
         - s3:ListObjects
 
 custom: 
-  BucketName: todo
+  BucketName:
+    Name: todo
 
 resources:
   Resources:
     S3TodoBuket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:custom.BucketName}-${self:provider.stage}
+        BucketName: ${self:custom.BucketName.Name}-${self:provider.stage}
+        AccessControl: Private
 
 functions:
   hello:
