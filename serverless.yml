@@ -17,9 +17,9 @@ provider:
         - s3:DeleteObject
         - s3:ListObjects
 
-# custom: 
-#   BucketName:
-#     Name: TodoList
+functions:
+  hello:
+    handler: src/handler.hello        
 
 resources:
   Resources:
@@ -27,8 +27,4 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:service}-${self:provider.stage}
-        AccessControl: Private
-
-functions:
-  hello:
-    handler: src/handler.hello        
+        AccessControl: Private    
