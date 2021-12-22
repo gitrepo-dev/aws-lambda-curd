@@ -19,7 +19,7 @@ provider:
 
 custom: 
   BucketName:
-    Name: todo
+    Name: TodoList
 
 resources:
   Resources:
