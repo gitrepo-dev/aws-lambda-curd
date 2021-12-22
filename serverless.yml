@@ -17,9 +17,9 @@ provider:
         - s3:DeleteObject
         - s3:ListObjects
 
-custom: 
-  BucketName:
-    Name: TodoList
+# custom: 
+#   BucketName:
+#     Name: TodoList
 
 resources:
   Resources:
