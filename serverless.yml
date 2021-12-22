@@ -1,7 +1,7 @@
 #aws curd app
 #version 1.0.0
 
-service: aws-todolist-app
+service: aws-todolist
 provider:
   name: aws
   runtime: nodejs14.x  
@@ -18,7 +18,7 @@ provider:
         - s3:ListObjects
 
 resources:
-  Resources:
+  Resource:
     S3OutputBucket:
       Type: AWS::S3::Bucket
       Properties:
