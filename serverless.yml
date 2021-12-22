@@ -17,14 +17,16 @@ provider:
         - s3:DeleteObject
         - s3:ListObjects
 
+resources:
+  Resources:
+    S3OutputBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-${self:provider.stage}
+        AccessControl: Private
+
 functions:
   hello:
     handler: src/handler.hello        
 
-resources:
-  Resources:
-    S3TodoBuket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${self:service}-${self:provider.stage}
-        AccessControl: Private    
+    
