@@ -29,4 +29,4 @@ resources:
     S3OutputBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: todo
+        BucketName: ${self:service}-${self:provider.stage}-assets
