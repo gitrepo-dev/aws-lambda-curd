@@ -1,7 +1,7 @@
 #aws curd app
 #version 1.0.0
 
-service: aws-todolist-webapp
+service: aws-todo
 provider:
   name: aws
   runtime: nodejs14.x  
