@@ -8,7 +8,7 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
-  iamRoleStatements:
+   iamRoleStatements:
     - Effect: Allow
       Action:
         - s3:CreateBucket
@@ -22,7 +22,7 @@ resources:
     S3OutputBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:service}-${self:provider.stage}-assets
+        BucketName: ${self:service}-${self:provider.stage}
         AccessControl: Private
 
 functions:
