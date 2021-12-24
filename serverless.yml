@@ -8,7 +8,7 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
-  Statement:
+  iamRoleStatements:
     - Effect: Allow
       Action:
         # - s3:CreateBucket
@@ -16,6 +16,8 @@ provider:
         - s3:GetObject
         - s3:DeleteObject
         - s3:ListObjects
+  environment:
+    FILE_UPLOAD_BUCKET_NAME: ${self:service}-${self:provider.stage}
 
 resources:
   Resources:
@@ -29,6 +31,15 @@ functions:
   hello:
     handler: src/handler.hello     
     timeout: 30 #sec
-    memorySize: 128   
+    memorySize: 128
 
-    
+  fileUpload:
+    handler: src/uploadfile.handler
+    name: s3-file-upload     
+    description: this is file upload function using api gatway trigger      
+    timeout: 30 #sec
+    memorySize: 128 #memory
+    events:
+     -http: 
+        path: images
+        method: POST                   
