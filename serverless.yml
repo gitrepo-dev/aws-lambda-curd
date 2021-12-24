@@ -11,7 +11,7 @@ provider:
   Statement:
     - Effect: Allow
       Action:
-        - s3:CreateBucket
+        # - s3:CreateBucket
         - s3:PutObject
         - s3:GetObject
         - s3:DeleteObject
@@ -27,6 +27,8 @@ resources:
 
 functions:
   hello:
-    handler: src/handler.hello        
+    handler: src/handler.hello     
+    timeout: 30 #sec
+    memorySize: 128   
 
     
