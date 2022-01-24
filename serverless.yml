@@ -8,19 +8,15 @@ provider:
   lambdaHashingVersion: 20201221
   stage: dev
   region: ap-south-1
-  # statements:
-  #   - Effect: Allow
-  iam:
-    role:
-      statements: # permissions for all of your functions can be set here
-        - Effect: Allow
-          Action: # action for lambda fun can do with s3 bucket
-            # - s3:CreateBucket
-            - s3:Put*
-            - s3:Get*
-            - s3:Delete*
-            - s3:List*
-          Resources: arn:aws:s3:::${self:service}-${self:provider.stage}/* #lambda fun can access nested dir /* using this symble
+    Statements: # permissions for all of your functions can be set here
+      - Effect: Allow
+        Action: # action for lambda fun can do with s3 bucket
+          # - s3:CreateBucket
+          - s3:Put*
+          - s3:Get*
+          - s3:Delete*
+          - s3:List*
+        Resources: arn:aws:s3:::${self:service}-${self:provider.stage}/* #lambda fun can access nested dir /* using this symble
   environment:
     FILE_UPLOAD_BUCKET_NAME: ${self:service}-${self:provider.stage}-fileUpload # realname of bucket
 
@@ -43,7 +39,7 @@ functions:
     handler: src/uploadfile.s3FileUploader
     name: s3-file-upload-lambda # lambda function name of src/handler.hello on aws
     description: this is file upload function using api gatway trigger      
-    timeout: 30 #sec to execute otherwise fail
+    timeout: 60 #sec to execute otherwise fail
     memorySize: 128 #it will take max size
     events:
      - httpApi: 'POST /file/images' #endpoint of api
