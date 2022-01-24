@@ -40,6 +40,4 @@ functions:
     timeout: 30 #sec
     memorySize: 128 #memory
     events:
-     -http: 
-        path: file/images
-        method: POST 
+     - httpApi: 'POST /file/images' 
