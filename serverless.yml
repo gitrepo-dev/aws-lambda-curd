@@ -10,19 +10,20 @@ provider:
   region: ap-south-1
   statements:
     - Effect: Allow
-      Action:
+      Action: # action for lambda fun can do with s3 bucket
         # - s3:CreateBucket
         - s3:PutObject
         - s3:GetObject
         - s3:DeleteObject
         - s3:ListObjects
+      Resources: arn:aws:s3:::${self:service}-${self:provider.stage}/* #lambda fun can access nested dir /* using this symble
   environment:
-    FILE_UPLOAD_BUCKET_NAME: ${self:service}-${self:provider.stage}
+    FILE_UPLOAD_BUCKET_NAME: ${self:service}-${self:provider.stage} # realname of bucket
 
 resources:
   Resources:
     S3OutputBucket:
-      Type: AWS::S3::Bucket
+      Type: AWS::S3::Bucket # serverless name of bucket
       Properties:
         BucketName: ${self:service}-${self:provider.stage}
         AccessControl: Private
@@ -34,7 +35,7 @@ functions:
     memorySize: 128
   handler:
     handler: src/uploadfile.handler
-    name: s3-file-upload     
+    name: s3-file-upload     # actual name of lambda fun
     description: this is file upload function using api gatway trigger      
     timeout: 30 #sec
     memorySize: 128 #memory
