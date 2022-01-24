@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports.hello = async (event) => {
+module.exports.test = async (event) => {
   return 'successfully deployed!'       
 };
