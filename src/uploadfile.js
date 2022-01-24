@@ -4,7 +4,7 @@ const AWS = require("aws-sdk")
 const s3 = new AWS.S3();
 const bucketName = process.env.FILE_UPLOAD_BUCKET_NAME
 
-module.exports.handler = async e => {
+module.exports.s3FileUploader = async e => {
     console.log(e)
 
     // response object

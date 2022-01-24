@@ -33,7 +33,7 @@ functions:
     handler: src/handler.hello     
     timeout: 30 #sec
     memorySize: 128
-  handler:
+  s3FileUploader:
     handler: src/uploadfile.handler
     name: s3-file-upload     # actual name of lambda fun
     description: this is file upload function using api gatway trigger      
